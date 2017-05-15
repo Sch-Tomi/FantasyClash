@@ -4,7 +4,7 @@ var Weapon = require("./weapon")
 
 class Sword extends Weapon {
     constructor() {
-        super(7)
+        super(7,2)
     }
 }
 

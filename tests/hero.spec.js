@@ -2,6 +2,7 @@
 
 var Hero = require('../hero');
 var Sword = require('../weapons/sword');
+var Dagger = require('../weapons/dagger');
 var expect = require('chai').expect;
 
 describe('Hero', function() {
@@ -75,5 +76,30 @@ describe('Hero', function() {
 
             expect(heroB.getHP()).to.eql(life-7)
         })
+
+        it("should decrease opponent's life by 5 because attacker has Sword and opponent has Sword", function () {
+            let life = 30
+            let heroA = new Hero(30)
+            heroA.addWeapon(new Sword)
+            let heroB = new Hero(30)
+            heroB.addWeapon(new Sword)
+
+            heroA.attack(heroB)
+
+            expect(heroB.getHP()).to.eql(life-5)
+        })
+
+        it("should decrease opponent's life by 3 because attacker has Sword and opponent has Dagger", function () {
+            let life = 30
+            let heroA = new Hero(30)
+            heroA.addWeapon(new Sword)
+            let heroB = new Hero(30)
+            heroB.addWeapon(new Dagger)
+
+            heroA.attack(heroB)
+
+            expect(heroB.getHP()).to.eql(life-3)
+        })
+
     })
 })

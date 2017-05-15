@@ -4,7 +4,7 @@ var Weapon = require("./weapon")
 
 class MagickStick extends Weapon {
     constructor() {
-        super(8)
+        super(8, 1)
     }
 }
 

@@ -12,7 +12,7 @@ class Hero {
     }
 
     attacked(dmg=1){
-        this._life -= parseInt(dmg)
+        this._life -=  this._weapon == "" ? parseInt(dmg) : (parseInt(dmg) - parseInt(this._weapon.getDEF()))
     }
 
     attack(hero){
