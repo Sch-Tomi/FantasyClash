@@ -4,18 +4,24 @@ class Hero {
 
     constructor(life=1) {
         this._life = life > 30 ? 30 : life
+        this._weapon = ""
     }
 
     getHP(){
         return this._life
     }
 
-    attacked(){
-        this._life--
+    attacked(dmg=1){
+        this._life -= parseInt(dmg)
     }
 
     attack(hero){
-        hero.attacked()
+        let dmg = this._weapon == "" ? 1 : parseInt(this._weapon.getDMG())
+        hero.attacked(dmg)
+    }
+
+    addWeapon(weapon){
+        this._weapon = weapon
     }
 
 }
