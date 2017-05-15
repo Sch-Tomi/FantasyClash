@@ -1,6 +1,7 @@
 "use strict"
 
 var Hero = require('../hero');
+var Priest = require('../priest');
 var Battle = require('../battle');
 var expect = require('chai').expect;
 
@@ -30,6 +31,14 @@ describe('Battle', function() {
 
         it("the first given hero should win", function() {
             expect(battle.getWinner()).to.eql(hero1)
+        })
+
+        it("complex test, Priest should win", function () {
+            var jon = new Hero(10);
+            var thoros = new Priest(5);
+
+            var battle = new Battle(jon, thoros);
+            expect(battle.getWinner()).to.eql(thoros)
         })
 
     })
