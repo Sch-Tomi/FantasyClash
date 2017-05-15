@@ -1,3 +1,5 @@
+"use strict"
+
 var Hero = require('../hero');
 var expect = require('chai').expect;
 
