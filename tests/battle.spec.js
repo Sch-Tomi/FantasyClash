@@ -1,40 +1,40 @@
 "use strict"
 
-var Hero = require('../hero');
-var Priest = require('../priest');
+var Warrior = require('../heroes/warrior');
+var Priest = require('../heroes/priest');
 var Battle = require('../battle');
 var expect = require('chai').expect;
 
 describe('Battle', function() {
 
-    let hero1
-    let hero2
+    let warrior1
+    let warrior2
     let battle
 
     beforeEach(function() {
-        hero1 = new Hero(30)
-        hero2 = new Hero(30)
-        battle = new Battle(hero1, hero2)
+        warrior1 = new Warrior(30)
+        warrior2 = new Warrior(30)
+        battle = new Battle(warrior1, warrior2)
     })
 
 
     describe('#constructor', function() {
 
-        it("should set 2 given heros", function() {
-            expect(battle._heroA).to.eql(hero1)
-            expect(battle._heroB).to.eql(hero2)
+        it("should set 2 given warriors", function() {
+            expect(battle._heroA).to.eql(warrior1)
+            expect(battle._heroB).to.eql(warrior2)
         })
 
     })
 
     describe('#getWinner', function() {
 
-        it("the first given hero should win", function() {
-            expect(battle.getWinner()).to.eql(hero1)
+        it("the first given warrior should win", function() {
+            expect(battle.getWinner()).to.eql(warrior1)
         })
 
         it("complex test, Priest should win", function () {
-            var jon = new Hero(10);
+            var jon = new Warrior(10);
             var thoros = new Priest(5);
 
             var battle = new Battle(jon, thoros);
@@ -43,19 +43,19 @@ describe('Battle', function() {
 
     })
 
-    describe("#_herosAreAlive", function () {
+    describe("#_heroesAreAlive", function () {
         it("after init should return True", function () {
-            expect(battle._herosAreAlive()).to.ok
+            expect(battle._heroesAreAlive()).to.ok
         })
     })
 
     describe("#_findWinner", function () {
-        it("should return hero1", function () {
-            hero1 = new Hero(1)
-            hero2 = new Hero(1)
+        it("should return warrior1", function () {
+            warrior1 = new Warrior(1)
+            warrior2 = new Warrior(1)
 
-            hero1.attack(hero2)
-            battle = new Battle(hero1, hero2)
+            warrior1.attack(warrior2)
+            battle = new Battle(warrior1, warrior2)
 
             expect(battle._findWinner()).to.eql(battle._heroA)
         })

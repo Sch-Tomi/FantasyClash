@@ -1,47 +1,47 @@
 "use strict"
 
-var Hero = require('../hero');
+var Warrior = require('../heroes/warrior');
 var Sword = require('../weapons/sword');
 var Dagger = require('../weapons/dagger');
 var expect = require('chai').expect;
 
-describe('Hero', function() {
+describe('Warrior', function() {
 
     describe('#constructor', function() {
 
         it('given 30 life should init life to 30', function() {
-            let hero = new Hero(30)
-            expect(hero._life).to.eql(30);
+            let warrior = new Warrior(30)
+            expect(warrior._life).to.eql(30);
         });
 
         it('given 50 life should init life to 30', function() {
-            let hero = new Hero(50)
-            expect(hero._life).to.eql(30);
+            let warrior = new Warrior(50)
+            expect(warrior._life).to.eql(30);
         });
 
         it('given 0 life should init life to 1', function() {
-            let hero = new Hero
-            expect(hero._life).to.eql(1);
+            let warrior = new Warrior
+            expect(warrior._life).to.eql(1);
         });
     })
 
     describe('#getHP', function() {
 
         let life
-        let hero
+        let warrior
 
         beforeEach(function() {
             life = 30
-            hero = new Hero(life)
+            warrior = new Warrior(life)
         })
 
         it('should return init life', function() {
-            expect(hero.getHP()).to.eql(life)
+            expect(warrior.getHP()).to.eql(life)
         })
 
         it('should not let change life', function() {
-            expect(hero.getHP() - 1).to.eql(life - 1)
-            expect(hero.getHP()).to.eql(life)
+            expect(warrior.getHP() - 1).to.eql(life - 1)
+            expect(warrior.getHP()).to.eql(life)
         })
     })
 
@@ -49,9 +49,9 @@ describe('Hero', function() {
 
         it("should decrease life by 1", function() {
             let life = 30
-            let hero = new Hero(30)
-            hero.attacked()
-            expect(hero.getHP()).to.eql(life-1)
+            let warrior = new Warrior(30)
+            warrior.attacked()
+            expect(warrior.getHP()).to.eql(life-1)
         })
     })
 
@@ -59,46 +59,46 @@ describe('Hero', function() {
 
         it("should decrease opponent's life by 1", function() {
             let life = 30
-            let heroA = new Hero(30)
-            let heroB = new Hero(30)
-            heroA.attack(heroB)
-            expect(heroA.getHP()).to.eql(life)
-            expect(heroB.getHP()).to.eql(life-1)
+            let warriorA = new Warrior(30)
+            let warriorB = new Warrior(30)
+            warriorA.attack(warriorB)
+            expect(warriorA.getHP()).to.eql(life)
+            expect(warriorB.getHP()).to.eql(life-1)
         })
 
 
         it("should decrease opponent's life by 7 because attacker has Sword", function () {
             let life = 30
-            let heroA = new Hero(30)
-            heroA.addWeapon(new Sword)
-            let heroB = new Hero(30)
-            heroA.attack(heroB)
+            let warriorA = new Warrior(30)
+            warriorA.addWeapon(new Sword)
+            let warriorB = new Warrior(30)
+            warriorA.attack(warriorB)
 
-            expect(heroB.getHP()).to.eql(life-7)
+            expect(warriorB.getHP()).to.eql(life-7)
         })
 
         it("should decrease opponent's life by 5 because attacker has Sword and opponent has Sword", function () {
             let life = 30
-            let heroA = new Hero(30)
-            heroA.addWeapon(new Sword)
-            let heroB = new Hero(30)
-            heroB.addWeapon(new Sword)
+            let warriorA = new Warrior(30)
+            warriorA.addWeapon(new Sword)
+            let warriorB = new Warrior(30)
+            warriorB.addWeapon(new Sword)
 
-            heroA.attack(heroB)
+            warriorA.attack(warriorB)
 
-            expect(heroB.getHP()).to.eql(life-5)
+            expect(warriorB.getHP()).to.eql(life-5)
         })
 
         it("should decrease opponent's life by 3 because attacker has Sword and opponent has Dagger", function () {
             let life = 30
-            let heroA = new Hero(30)
-            heroA.addWeapon(new Sword)
-            let heroB = new Hero(30)
-            heroB.addWeapon(new Dagger)
+            let warriorA = new Warrior(30)
+            warriorA.addWeapon(new Sword)
+            let warriorB = new Warrior(30)
+            warriorB.addWeapon(new Dagger)
 
-            heroA.attack(heroB)
+            warriorA.attack(warriorB)
 
-            expect(heroB.getHP()).to.eql(life-3)
+            expect(warriorB.getHP()).to.eql(life-3)
         })
 
     })

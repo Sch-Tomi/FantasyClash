@@ -1,17 +1,17 @@
 "use strict";
 
-var Hero = require('./hero');
+var Warrior = require('./warrior');
 
-class Priest extends Hero {
+class Priest extends Warrior {
 
     constructor(life) {
         super(life)
         this._maxHP = this.getHP()
     }
 
-    attack(hero){
+    attack(warrior){
         this._heal()
-        super.attack(hero)
+        super.attack(warrior)
     }
 
     _heal(){

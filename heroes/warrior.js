@@ -1,6 +1,6 @@
 "use strict";
 
-class Hero {
+class Warrior {
 
     constructor(life=1) {
         this._life = life > 30 ? 30 : life
@@ -26,4 +26,4 @@ class Hero {
 
 }
 
-module.exports = Hero
+module.exports = Warrior

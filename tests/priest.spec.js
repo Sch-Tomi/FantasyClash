@@ -1,7 +1,7 @@
 "use strict"
 
-var Priest = require('../priest');
-var Hero = require('../hero');
+var Priest = require('../heroes/priest');
+var Warrior = require('../heroes/warrior');
 var Sword = require('../weapons/sword');
 var Dagger = require('../weapons/dagger');
 var expect = require('chai').expect;
@@ -21,13 +21,13 @@ describe('Priest', function() {
         it("priest should decrease opponent's life by 1 and heal himself", function() {
 
             let priest = new Priest(30)
-            let hero = new Hero(30)
+            let warrior = new Warrior(30)
 
             priest._life = 29
-            priest.attack(hero)
+            priest.attack(warrior)
 
             expect(priest.getHP()).to.eql(30)
-            expect(hero.getHP()).to.eql(29)
+            expect(warrior.getHP()).to.eql(29)
         })
 
     })
