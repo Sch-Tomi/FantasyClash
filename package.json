@@ -2,7 +2,7 @@
   "name": "fantasyclash",
   "version": "1.0.0",
   "description": "Fight game",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "mocha ./tests --recursive"
   },
@@ -18,9 +18,11 @@
   "homepage": "https://github.com/Sch-Tomi/FantasyClash#readme",
   "devDependencies": {
     "chai": "^3.5.0",
-    "mocha": "^3.4.1"
+    "mocha": "^3.4.1",
+    "supertest": "^3.0.0"
   },
   "dependencies": {
+    "body-parser": "^1.17.1",
     "express": "^4.15.2"
   }
 }

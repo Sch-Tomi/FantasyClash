@@ -31,4 +31,26 @@ describe('Priest', function() {
         })
 
     })
+
+    describe("#serialize", function () {
+
+        let life
+        let priest
+
+        beforeEach(function() {
+            life = 30
+            priest = new Priest(life)
+        })
+
+        it("should return without weapon", function () {
+            expect(priest.serialize()).to.eql({type: "priest", hp:life})
+        })
+
+        it("should return with weapon", function () {
+            priest.addWeapon(new Sword)
+            expect(priest.serialize()).to.eql({type: "priest", hp:life, weapon: "Sword"})
+        })
+
+    })
+
 })

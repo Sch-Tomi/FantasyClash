@@ -20,6 +20,14 @@ class Priest extends Warrior {
         }
     }
 
+    serialize(){
+        if(this._weapon == ""){
+            return {type: 'priest', hp: this._life}
+        }else{
+            return {type: 'priest', hp: this._life, weapon: this._weapon.toString()}
+        }
+    }
+
 
 }
 

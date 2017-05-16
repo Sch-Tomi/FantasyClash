@@ -24,6 +24,14 @@ class Warrior {
         this._weapon = weapon
     }
 
+
+    serialize(){
+        if(this._weapon == ""){
+            return {type: 'warrior', hp: this._life}
+        }else{
+            return {type: 'warrior', hp: this._life, weapon: this._weapon.toString()}
+        }
+    }
 }
 
 module.exports = Warrior
