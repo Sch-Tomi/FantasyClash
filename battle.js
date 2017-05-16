@@ -8,7 +8,7 @@ class Battle {
 
     getWinner(){
 
-        while (this._herosAreAlive()) {
+        while (this._heroesAreAlive()) {
             if (this._heroA.getHP() > 0) {
                 this._heroA.attack(this._heroB)
             }
@@ -22,7 +22,7 @@ class Battle {
 
     }
 
-    _herosAreAlive(){
+    _heroesAreAlive(){
         return this._heroA.getHP() > 0 && this._heroB.getHP() > 0
     }
 
