@@ -16,10 +16,7 @@ class App {
     }
 
     listen(port = 3005) {
-        return this._app.listen(port, function() {
-            console.log('App listening on port: ' + port)
-        })
-
+        return this._app.listen(port)
     }
 
     _setBodyParser(bodyParser) {
