@@ -1,8 +1,8 @@
 "use strict"
 
-var Warrior = require('../heroes/warrior');
-var Priest = require('../heroes/priest');
-var Battle = require('../battle');
+var Warrior = require('../../clash/heroes/warrior');
+var Priest = require('../../clash/heroes/priest');
+var Battle = require('../../clash/battle');
 var expect = require('chai').expect;
 
 describe('Battle', function() {

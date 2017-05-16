@@ -1,8 +1,8 @@
 "use strict"
 
-var Warrior = require('../heroes/warrior');
-var Sword = require('../weapons/sword');
-var Dagger = require('../weapons/dagger');
+var Warrior = require('../../../clash/heroes/warrior');
+var Sword = require('../../../clash/weapons/sword');
+var Dagger = require('../../../clash/weapons/dagger');
 var expect = require('chai').expect;
 
 describe('Warrior', function() {

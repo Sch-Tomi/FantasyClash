@@ -1,6 +1,6 @@
 "use strict"
 
-var Weapon = require('../../weapons/weapon');
+var Weapon = require('../../../clash/weapons/weapon');
 var expect = require('chai').expect;
 
 describe('Weapon', function() {

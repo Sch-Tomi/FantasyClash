@@ -1,6 +1,6 @@
 "use strict"
 
-var MagickStick = require('../../weapons/magickStick');
+var MagickStick = require('../../../clash/weapons/magickStick');
 var expect = require('chai').expect;
 
 describe('MagickStick', function() {

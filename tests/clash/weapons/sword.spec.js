@@ -1,12 +1,12 @@
 "use strict"
 
-var Sword = require('../../weapons/sword');
+var Sword = require('../../../clash/weapons/sword');
 var expect = require('chai').expect;
 
 describe('Sword', function() {
 
     describe("#constructor", function () {
-        
+
         let sword
 
         beforeEach(function() {
