@@ -1,5 +1,5 @@
 # FantasyClash
----
+
 [![Build Status](https://travis-ci.org/Sch-Tomi/FantasyClash.svg?branch=master)](https://travis-ci.org/Sch-Tomi/FantasyClash)
 ---
 
