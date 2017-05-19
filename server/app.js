@@ -28,7 +28,7 @@ class App {
 
     _setRoutes() {
 
-        this._app.get('/', async function(req, res) {
+        this._app.get('/heroes', async function(req, res) {
             res.status(200).json(this._serializeHeroes())
         }.bind(this))
 
@@ -36,7 +36,7 @@ class App {
             res.status(200).json(this._fight(req.query.hero1, req.query.hero2))
         }.bind(this))
 
-        this._app.post('/', async function(req, res) {
+        this._app.post('/heroes', async function(req, res) {
             if (req.body.type != null) {
 
                 let hero = {

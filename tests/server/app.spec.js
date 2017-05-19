@@ -18,15 +18,15 @@ describe('Server App', () => {
     });
 
 
-    context('POST /', () => {
+    context('POST /heroes', () => {
         it('empty given params should return with an error json', async() => {
-            let result = await request.post('/')
+            let result = await request.post('/heroes')
             expect(result.statusCode).to.eql(200)
             expect(JSON.parse(result.res.text)).to.eql({error:"Missing Hero"})
         })
 
         it('should save given hero', async() => {
-            let result = await request.post('/')
+            let result = await request.post('/heroes')
                 .send({
                     type: 'warrior',
                     hp: 30,
@@ -39,9 +39,9 @@ describe('Server App', () => {
 
     })
 
-    context('GET /', () => {
+    context('GET /heroes', () => {
         it('should return with an heroes object', async() => {
-            await request.post('/')
+            await request.post('/heroes')
                 .send({
                     type: 'warrior',
                     hp: 30,
@@ -49,7 +49,7 @@ describe('Server App', () => {
                 })
                 .set('Accept', 'application/json');
 
-            let result = await request.get('/')
+            let result = await request.get('/heroes')
             expect(result.statusCode).to.eql(200)
             expect(JSON.parse(result.res.text)).to.eql([{type:"warrior",hp:30,weapon:"Sword",id:1}])
         })
@@ -58,7 +58,7 @@ describe('Server App', () => {
 
     context('GET /battle',() =>  {
         it('should return with an heroes object', async() => {
-            await request.post('/')
+            await request.post('/heroes')
                 .send({
                     type: 'warrior',
                     hp: 30,
@@ -66,7 +66,7 @@ describe('Server App', () => {
                 })
                 .set('Accept', 'application/json');
 
-            await request.post('/')
+            await request.post('/heroes')
                 .send({
                     type: 'warrior',
                     hp: 10,
