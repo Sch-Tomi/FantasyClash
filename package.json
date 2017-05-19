@@ -1,28 +1,29 @@
 {
-  "name": "fantasyclash",
-  "version": "1.0.0",
-  "description": "Fight game",
-  "main": "app.js",
-  "scripts": {
-    "test": "mocha ./tests --recursive"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Sch-Tomi/FantasyClash.git"
-  },
-  "author": "Schronk Tamás",
-  "license": "GPL-3.0",
-  "bugs": {
-    "url": "https://github.com/Sch-Tomi/FantasyClash/issues"
-  },
-  "homepage": "https://github.com/Sch-Tomi/FantasyClash#readme",
-  "devDependencies": {
-    "chai": "^3.5.0",
-    "mocha": "^3.4.1",
-    "supertest": "^3.0.0"
-  },
-  "dependencies": {
-    "body-parser": "^1.17.1",
-    "express": "^4.15.2"
-  }
+    "name": "fantasyclash",
+    "version": "1.0.0",
+    "description": "Fight game",
+    "main": "app.js",
+    "scripts": {
+        "start": "node app.js",
+        "test": "mocha ./tests --recursive"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Sch-Tomi/FantasyClash.git"
+    },
+    "author": "Schronk Tamás",
+    "license": "GPL-3.0",
+    "bugs": {
+        "url": "https://github.com/Sch-Tomi/FantasyClash/issues"
+    },
+    "homepage": "https://github.com/Sch-Tomi/FantasyClash#readme",
+    "devDependencies": {
+        "chai": "^3.5.0",
+        "mocha": "^3.4.1",
+        "supertest": "^3.0.0"
+    },
+    "dependencies": {
+        "body-parser": "^1.17.1",
+        "express": "^4.15.2"
+    }
 }
