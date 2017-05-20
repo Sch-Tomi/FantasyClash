@@ -136,7 +136,7 @@ describe('Warrior', function() {
 
         it("should decrease opponent's life by 3 because attacker has Sword and opponent has Dagger", function () {
             warriorA.addWeapon(new Sword)
-            warriorB.addWeapon(new D)
+            warriorB.addWeapon(new Dagger)
 
             warriorA.attack(warriorB)
 
