@@ -18,6 +18,11 @@ class Priest extends Warrior {
     _heal(){
         if (this.getHP() < this._maxHP) {
             this._life++
+            
+            if(Math.random() > 0.6){
+                this._life++
+            }
+
         }
     }
 
