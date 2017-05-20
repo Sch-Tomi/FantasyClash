@@ -3,6 +3,7 @@
 var Warrior = require('../../../clash/heroes/warrior');
 var Sword = require('../../../clash/weapons/sword');
 var Dagger = require('../../../clash/weapons/dagger');
+var MagickStick = require('../../../clash/weapons/magickStick');
 var expect = require('chai').expect;
 
 describe('Warrior', function() {
@@ -53,6 +54,13 @@ describe('Warrior', function() {
             warrior.attacked()
             expect(warrior.getHP()).to.eql(life-1)
         })
+
+        it("should decrease life by 3", function() {
+            let life = 30
+            let warrior = new Warrior(30)
+            warrior.attacked(3)
+            expect(warrior.getHP()).to.eql(life-3)
+        })
     })
 
     describe("#attack", function() {
@@ -61,10 +69,29 @@ describe('Warrior', function() {
         let warriorA
         let warriorB
 
+        let greatestDmgWithSword
+        let normalDmgWithSword
+        let normalDefWithSword
+
+        let greatestDmgWithDagger
+        let normalDmgWithDagger
+        let greatestDefWithDagger
+        let normalDefWithDagger
+
         beforeEach(function() {
             life = 30
             warriorA = new Warrior(life)
             warriorB = new Warrior(life)
+
+            greatestDmgWithSword = 10
+            normalDmgWithSword = 7
+            normalDefWithSword = 2
+
+            greatestDmgWithDagger = 6
+            normalDmgWithDagger = 5
+            greatestDefWithDagger = 5
+            normalDefWithDagger = 4
+
         })
 
         it("should decrease opponent's life by 1", function() {
@@ -74,20 +101,24 @@ describe('Warrior', function() {
         })
 
 
-        it("should decrease opponent's life by 7 because attacker has Sword", function () {
+        it("should decrease opponent's life within [7, 10] because attacker has Sword", function () {
             warriorA.addWeapon(new Sword)
             warriorA.attack(warriorB)
 
-            expect(warriorB.getHP()).to.eql(life-7)
+            expect(warriorB.getHP()).to.be.within(life-greatestDmgWithSword, life-normalDmgWithSword)
         })
 
-        it("should decrease opponent's life by 5 because attacker has Sword and opponent has Sword", function () {
+        it("should decrease opponent's life within [2, 5] because attacker has Sword and opponent has Sword", function () {
             warriorA.addWeapon(new Sword)
             warriorB.addWeapon(new Sword)
 
             warriorA.attack(warriorB)
 
-            expect(warriorB.getHP()).to.eql(life-5)
+            let worstOutCome = life - greatestDmgWithSword + normalDefWithSword
+            let bestOutCome = life - normalDmgWithSword + normalDefWithSword
+
+
+            expect(warriorB.getHP()).to.be.within(worstOutCome, bestOutCome)
         })
 
         it("should decrease opponent's life by 3 because attacker has Sword and opponent has Dagger", function () {
@@ -96,7 +127,24 @@ describe('Warrior', function() {
 
             warriorA.attack(warriorB)
 
-            expect(warriorB.getHP()).to.eql(life-3)
+            let worstOutCome = life - greatestDmgWithSword + normalDefWithDagger
+            let bestOutCome = life - normalDmgWithSword + greatestDefWithDagger
+
+
+            expect(warriorB.getHP()).to.be.within(worstOutCome, bestOutCome)
+        })
+
+        it("should decrease opponent's life by 3 because attacker has Sword and opponent has Dagger", function () {
+            warriorA.addWeapon(new Sword)
+            warriorB.addWeapon(new D)
+
+            warriorA.attack(warriorB)
+
+            let worstOutCome = life - greatestDmgWithSword + normalDefWithDagger
+            let bestOutCome = life - normalDmgWithSword + greatestDefWithDagger
+
+
+            expect(warriorB.getHP()).to.be.within(worstOutCome, bestOutCome)
         })
 
     })
